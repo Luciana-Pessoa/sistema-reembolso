@@ -6,6 +6,7 @@ const caterory = document.getElementById("category");
 
 //seleciona os elementos do formulario da lista
 const expenseList = document.querySelector("ul");
+const expenseQuantity = document.querySelector("aside header p span");
 
 // captura o evento de input no campo de valor e remove todos os caracteres que não são números.
 amount.oninput = () => {
@@ -42,6 +43,8 @@ form.onsubmit = (event) => {
     created_at: new Date(),
 
   };
+
+
 
   //chama a função para adicionar a nova despesa.
   expenseAdd(newExpense);
@@ -97,5 +100,18 @@ expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount
   } catch (error) {
     alert("Nao foi possivel atualizar a lista de despesas");
     console.log(error);
+  }
+}
+
+function updateTotals(){
+
+  try {
+
+    const items = expenseList.children
+    
+  } catch (error) {
+
+    console.log(error);
+    alert("Nao foi possivel atualizar os totais");
   }
 }
