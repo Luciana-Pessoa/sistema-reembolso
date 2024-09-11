@@ -100,7 +100,10 @@ expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount
 
    //adiciona o item la lista de despesas
    expenseList.append(expenseItem);
-  updateTotals();
+
+   //limpa os campos do formulario
+   formeCLear();
+   updateTotals();
 
   } catch (error) {
     alert("Nao foi possivel atualizar a lista de despesas");
@@ -155,4 +158,24 @@ function updateTotals(){
     
     alert("Nao foi possivel atualizar os totais");
   }
+}
+
+//captura o evento de click na lista de despesas.
+expenseList.onclick = (event) => {
+  //verifica se o elemento clicado é o icone de excluir despesa.
+  if (event.target.classList.contains("remove-icon")) {
+    //remove o item da lista de despesas.
+    event.target.parentElement.remove();
+    updateTotals();
+  }
+};
+
+//função para limpar os campos do formulario.
+function formeCLear(){
+  expense.value = "";
+  amount.value = "";
+  caterory.value = "";
+ 
+  //foco no campo de despesa.
+  expense.focus();
 }
